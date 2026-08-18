@@ -14,7 +14,7 @@ public class Main {
     static void main() {
         Scanner s = new Scanner(System.in);
         System.out.println("Informe o CEP");
-        String cep = s.next();
+        String cep = "85901270";
         String url = "https://viacep.com.br/ws/"+cep+"/json/";
         Endereco endereco = new Endereco();
 
@@ -40,19 +40,28 @@ public class Main {
 
                 switch(atributo){
                     case "cep":
-                        endereco.getCep();
+                        endereco.setCep(valor);
                         break;
                     case "logradouro" :
-                        endereco.getLogradouro();
+                        endereco.setLogradouro(valor);
                         break;
                     case "complemento":
-                        endereco.getComplemento();
+                        endereco.setComplemento(valor);
                         break;
                     case "bairro":
-                        endereco.getBairro();
+                        endereco.setBairro(valor);
                         break;
                     case "uf":
-                        endereco.getUf();
+                        endereco.setUf(valor);
+                        break;
+                    case "estado":
+                        endereco.setUf(valor);
+                        break;
+                    case "ddd":
+                        endereco.setUf(valor);
+                        break;
+                    case "localidade":
+                        endereco.setLocalidade(valor);
                         break;
                     case "erro":
                         System.out.println("Cep nao Encontrado");
@@ -68,7 +77,7 @@ public class Main {
         }catch (Exception e){
             System.out.println("Algo de errado nao deu certo"+e.getMessage());
         }
-
+        System.out.println(endereco);
     }
     private static String extrairCampo(String json, String campo) {
         try {
